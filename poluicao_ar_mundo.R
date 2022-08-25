@@ -16,3 +16,20 @@
 ### de renda média e baixa por duas razões: devido à dependência
 ### de combustíveis sólidos para preparar alimentos e devido à
 ### industrialização dos países que saem da renda baixa.
+
+# Pacotes necessários para as análises -----------------------------------------------------------------------------------------------------
+
+library(tidyverse)
+
+# Carregar dados ---------------------------------------------------------------------------------------------------------------------------
+
+pol <- read.csv("death-rates-total-air-pollution.csv")
+view(pol)
+names(pol)
+
+# Manipulação de dados ---------------------------------------------------------------------------------------------------------------------
+
+pol1 <- pol %>%
+  select(-Code) %>%
+  rename(mortes = Deaths...Cause..All.causes...Risk..Air.pollution...Sex..Both...Age..Age.standardized..Rate.)
+view(pol1)
