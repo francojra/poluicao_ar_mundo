@@ -46,5 +46,11 @@ view(pol2)
 
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
 
-ggplot(pol2, aes(x = media, y = mortes)) +
-  geom_col()
+ggplot(pol2, aes(x = fct_reorder(Entity, media), y = media)) +
+  geom_col() +
+  geom_errorbar(aes(x = Entity, y = media, 
+                    ymin = media - se, ymax =  media + se),
+                size = 0.8, width = 0.3) +
+  coord_flip() +
+  labs(x = "Países", y = "Número médio de mortes por poluição do ar") +
+  theme_bw()
