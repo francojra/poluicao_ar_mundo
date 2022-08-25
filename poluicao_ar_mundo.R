@@ -6,4 +6,13 @@
 
 # Sobre os dados ---------------------------------------------------------------------------------------------------------------------------
 
+### Poluição do ar é uma questão ambiental e de saúde pública em 
+### todo o mundo, mas com diferentes graus de severidade.
 
+### Os dados apresentam medidas do número de mortes a cada 100 mil
+### pessoas em uma determinada região.
+
+### O fardo da poluição do ar tende a ser maior em torno de países
+### de renda média e baixa por duas razões: devido à dependência
+### de combustíveis sólidos para preparar alimentos e devido à
+### industrialização dos países que saem da renda baixa.
