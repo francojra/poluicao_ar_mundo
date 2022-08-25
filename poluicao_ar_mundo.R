@@ -20,6 +20,7 @@
 # Pacotes necessários para as análises -----------------------------------------------------------------------------------------------------
 
 library(tidyverse)
+library(pals)
 
 # Carregar dados ---------------------------------------------------------------------------------------------------------------------------
 
@@ -44,6 +45,13 @@ pol2 <- pol1 %>%
             n = n(), se = sd/sqrt(n))
 view(pol2)
 
+pol3 <- pol1 %>%
+  filter(Entity %in% c("Angola", "Brazil", "China", "Russsia",
+                       "United States", "France", "Germany",
+                       "Ghana", "India", "Haiti", "Hungary", 
+                       "Iceland", "Israel", "Portugal", "Italy")) 
+view(pol3)
+
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
 
 ggplot(pol2, aes(x = fct_reorder(Entity, media), y = media)) +
@@ -53,4 +61,12 @@ ggplot(pol2, aes(x = fct_reorder(Entity, media), y = media)) +
                 size = 0.8, width = 0.3) +
   coord_flip() +
   labs(x = "Países", y = "Número médio de mortes por poluição do ar") +
+  theme_bw()
+
+ggplot(pol3, aes(x = Year, y = mortes, group = Entity, col = Entity)) +
+  geom_point(size = 3) +
+  geom_line(size = 1.4) +
+  scale_color_manual(values = as.vector(alphabet(14))) +
+  labs(x = "Tempo", y = "Número médio de mortes por poluição do ar",
+       col = "Países") +
   theme_bw()
