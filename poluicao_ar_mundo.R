@@ -33,3 +33,10 @@ pol1 <- pol %>%
   select(-Code) %>%
   rename(mortes = Deaths...Cause..All.causes...Risk..Air.pollution...Sex..Both...Age..Age.standardized..Rate.)
 view(pol1)
+
+pol2 <- pol1 %>%
+  filter(Entity %in% c("Angola", "Brazil", "China", "Russsia",
+                       "United States", "France", "Germany",
+                       "Ghana", "India", "Haiti", "Hungary", 
+                       "Iceland", "Israel", "Portugal", "Italy"))
+view(pol2)
