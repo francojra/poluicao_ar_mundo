@@ -38,5 +38,13 @@ pol2 <- pol1 %>%
   filter(Entity %in% c("Angola", "Brazil", "China", "Russsia",
                        "United States", "France", "Germany",
                        "Ghana", "India", "Haiti", "Hungary", 
-                       "Iceland", "Israel", "Portugal", "Italy"))
+                       "Iceland", "Israel", "Portugal", "Italy")) %>%
+  group_by(Entity) %>%
+  summarise(media = mean(mortes), sd = sd(mortes),
+            n = n(), se = sd/sqrt(n))
 view(pol2)
+
+# Gráficos ---------------------------------------------------------------------------------------------------------------------------------
+
+ggplot(pol2, aes(x = media, y = mortes)) +
+  geom_col()
